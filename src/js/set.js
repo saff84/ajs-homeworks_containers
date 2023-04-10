@@ -2,13 +2,12 @@ export default  class Team {
     constructor() {
         this.members = new Set();
     }
+
     add(member){
-      this.members.forEach(item => {
-        if (item.name === member.name){
-          throw new Error('Такой персонаж уже в команде!')
-        } 
-      })
-        this.members.add(member)
+      if (this.members.has(member)){
+         throw new Error('Такой персонаж уже в команде!')
+      }
+      this.members.add(member)
     }
     
     addAll(...arrMembers){
